@@ -183,4 +183,10 @@ ansible-project/
 
 ---
 
+## Additional Resources
+
+📄 **Detailed Ansible Guide PDF**: [file.pdf](https://github.com/user-attachments/files/22088485/file.pdf)
+
+---
+
 **Remember:** Ansible is about describing the desired state, not the steps to get there!
