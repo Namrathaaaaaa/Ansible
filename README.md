@@ -1,19 +1,21 @@
 # Ansible Quick Reference Guide
 
 ## What is Ansible?
+
 **Ansible** is an agentless automation tool for configuration management, application deployment, and orchestration. Simple, powerful, and human-readable.
 
 ## Ansible vs Chef - Key Differences
 
-| Aspect | Ansible | Chef |
-|--------|---------|------|
-| **Architecture** | Push-based, agentless | Pull-based, agent-required |
-| **Language** | YAML (declarative) | Ruby DSL (procedural) |
-| **Learning Curve** | Easy to start | Steeper, requires Ruby |
-| **Installation** | Control node only | Server + client on all nodes |
-| **Network** | Outbound SSH (22) | Inbound HTTPS (443) |
+| Aspect             | Ansible               | Chef                         |
+| ------------------ | --------------------- | ---------------------------- |
+| **Architecture**   | Push-based, agentless | Pull-based, agent-required   |
+| **Language**       | YAML (declarative)    | Ruby DSL (procedural)        |
+| **Learning Curve** | Easy to start         | Steeper, requires Ruby       |
+| **Installation**   | Control node only     | Server + client on all nodes |
+| **Network**        | Outbound SSH (22)     | Inbound HTTPS (443)          |
 
 **Why Ansible?**
+
 - ✓ No agent installation
 - ✓ Human-readable YAML
 - ✓ Simpler architecture
@@ -24,15 +26,21 @@
 ## Core Components
 
 ### 1. Control Node
+
 Machine where Ansible is installed.
+
 - Requirements: Python 2.7+, Linux/Unix, SSH client
 
 ### 2. Managed Nodes
+
 Target systems Ansible manages.
+
 - Requirements: SSH server, Python 2.6+
 
 ### 3. Inventory
+
 Defines hosts and groups:
+
 ```ini
 [webservers]
 web1.example.com
@@ -43,7 +51,9 @@ db1.example.com
 ```
 
 ### 4. Playbooks
+
 YAML files defining tasks:
+
 ```yaml
 ---
 - name: Configure web servers
@@ -54,7 +64,7 @@ YAML files defining tasks:
       yum:
         name: httpd
         state: present
-    
+
     - name: Start Apache
       service:
         name: httpd
@@ -63,7 +73,9 @@ YAML files defining tasks:
 ```
 
 ### 5. Modules
+
 Built-in task units:
+
 - `yum/apt` - Package management
 - `service` - Service management
 - `copy` - File operations
@@ -78,6 +90,7 @@ Control Node → SSH → Managed Node → Execute → Return Results
 ```
 
 **Process:**
+
 1. Parse playbook
 2. Read inventory
 3. SSH to hosts
@@ -89,10 +102,13 @@ Control Node → SSH → Managed Node → Execute → Return Results
 ## Key Features
 
 ### Idempotency
+
 Running the same playbook multiple times = same result
 
 ### Declarative
+
 Describe desired state, not steps:
+
 ```yaml
 - name: Ensure user exists
   user:
@@ -102,6 +118,7 @@ Describe desired state, not steps:
 ```
 
 ### Agentless
+
 No agents to install or manage on target systems
 
 ---
