@@ -133,6 +133,12 @@ handlers:
         state: restarted
 ```
 
+### Visual Example
+
+Here's how the playbook execution looks in practice:
+
+![Ansible Playbook Execution Example](https://github.com/user-attachments/assets/3d6a13ed-4fec-4dca-9b43-9444551cacbb)
+
 ## Execution Commands
 
 ```bash
