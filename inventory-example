@@ -1,8 +1,0 @@
-[webservers]
-web1.example.com ansible_user=ubuntu
-web2.example.com ansible_user=ubuntu
-192.168.1.10 ansible_user=admin
-
-[webservers:vars]
-ansible_ssh_private_key_file=~/.ssh/id_rsa
-ansible_python_interpreter=/usr/bin/python3
