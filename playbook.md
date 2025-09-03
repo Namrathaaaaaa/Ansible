@@ -133,11 +133,61 @@ handlers:
         state: restarted
 ```
 
-### Visual Example
+## Real-World Example: Static Website Hosting
 
-Here's how the playbook execution looks in practice:
+Complete playbook for deploying a static website with Nginx:
 
-![Ansible Playbook Execution Example](https://github.com/user-attachments/assets/3d6a13ed-4fec-4dca-9b43-9444551cacbb)
+```yaml
+---
+- name: Deploy Static Website with Nginx
+  hosts: webservers
+  become: yes
+  vars:
+    website_dir: /var/www/html
+
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Deploy HTML files
+      copy:
+        content: |
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>My Static Website</title>
+          </head>
+          <body>
+              <h1>Welcome!</h1>
+              <p>Deployed with Ansible on {{ ansible_hostname }}</p>
+          </body>
+          </html>
+        dest: "{{ website_dir }}/index.html"
+        owner: www-data
+        group: www-data
+      notify: restart nginx
+
+    - name: Start Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+```
+
+**Usage:**
+```bash
+# Run the playbook
+ansible-playbook -i inventory-example static-website-example.yml
+```
 
 ## Execution Commands
 
