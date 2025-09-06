@@ -19,7 +19,27 @@ PasswordAuthentication yes
 **Restart SSH:**
 
 ```bash
-sudo systemctl restart sshd
+sudo systemctl restart ssh
+
+
+```
+## Setup Commands
+
+**Set password for ubuntu user:**
+
+```bash
+sudo passwd ubuntu
+```
+
+**Copy SSH key:**
+
+```bash
+ssh-copy-id ubuntu@13.233.196.218
+
+**SSH connect:**
+
+```bash
+ssh ubuntu@13.233.196.218
 ```
 
 ---
