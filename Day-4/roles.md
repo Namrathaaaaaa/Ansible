@@ -1,14 +1,17 @@
 # Ansible Roles
 
 ## What are Roles?
+
 **Roles** are reusable collections of tasks, variables, and files organized in a standard structure. They make playbooks modular and reusable.
 
 ## Why Use Roles?
+
 - ✅ **Reusable** across multiple playbooks
 - ✅ **Organized** with standard structure
 - ✅ **Modular** - break complex tasks into components
 
 ## Role Structure
+
 ```
 roles/webserver/
 ├── tasks/main.yml      # Main tasks
@@ -20,11 +23,13 @@ roles/webserver/
 ```
 
 ## Create Role
+
 ```bash
 ansible-galaxy init webserver
 ```
 
 ## Example tasks/main.yml
+
 ```yaml
 ---
 - name: Install Apache
@@ -39,6 +44,7 @@ ansible-galaxy init webserver
 ```
 
 ## Using Roles in Playbooks
+
 ```yaml
 ---
 - name: Configure servers
@@ -50,4 +56,5 @@ ansible-galaxy init webserver
 ```
 
 ---
+
 **Roles = Reusable + Organized + Modular**
