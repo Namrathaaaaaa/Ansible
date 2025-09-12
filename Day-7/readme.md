@@ -21,3 +21,6 @@ pip install boto3
 ansible-galaxy collection install amazon.aws
 openssl rand -base64 2048 > vault.pass
 
+
+ansible-vault create group_vars/all/pass.yaml --vault-password-file vault.pass
+ansible-playbook ec2_create.yaml --vault-password-file vault.pass
